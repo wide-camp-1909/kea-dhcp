@@ -9,28 +9,4 @@ services:
       - ./kea-dhcp4.conf:/etc/kea/kea-dhcp4.conf:ro
     ports:
       - 67:67
-    depends_on:
-      - kea-db
-    networks:
-      - frontend
-      - backend
-
-  kea-db:
-    image: mariadb
-    container_name: kea-dhcp-db
-    restart: unless-stopped
-    volumes:
-      - ./mariadb:/var/lib/mysql
-    environment:
-      MYSQL_DATABASE: kea
-      MYSQL_ROOT_PASSWORD: WE5N2VjMGM3Yzg5ZDQ2ODFkMiAgLQ
-    networks:
-      - backend
-
-networks:
-  frontend:
-    external:
-      name: camp-production
-  backend:
-    driver: bridge
-
+    network_mode: host

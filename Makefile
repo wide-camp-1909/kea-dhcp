@@ -1,5 +1,5 @@
 .PHONY: default
-default: init
+default: init run log
 
 .PHONY: init
 init:
@@ -9,3 +9,15 @@ init:
 	docker network create -d bridge -o parent=ens224 camp-guest-isp
 	docker network create -d bridge -o parent=ens256 camp-guest
 
+.PHONY: run
+run:
+	docker-compose up --build -d
+
+.PHONY: log
+log:
+	docker-compose logs -f
+
+.PHONY: clean
+clean:
+	docker-compose kill
+	docker-compose rm -f

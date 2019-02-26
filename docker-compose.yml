@@ -9,7 +9,7 @@ services:
     volumes:
       - ./4000_mgmt.conf:/etc/kea/kea-dhcp4.conf:ro
     ports:
-      - 67:67
+      - 10.0.100.0:67:67
     networks:
       vid4000:
 
@@ -21,7 +21,7 @@ services:
     volumes:
       - ./4010_noc-private.conf:/etc/kea/kea-dhcp4.conf:ro
     ports:
-      - 67:67
+      - 203.178.156.66:67:67
     networks:
       vid4010:
 
@@ -33,7 +33,7 @@ services:
     volumes:
       - ./4030_camp-guest.conf:/etc/kea/kea-dhcp4.conf:ro
     ports:
-      - 67:67
+      - 203.178.158.2:67:67
     networks:
       vid4030:
 
@@ -45,7 +45,7 @@ services:
     volumes:
       - ./4031_camp-guest-nofw.conf:/etc/kea/kea-dhcp4.conf:ro
     ports:
-      - 67:67
+      - 203.178.157.2:67:67
     networks:
       vid4031:
 
@@ -57,23 +57,27 @@ services:
     volumes:
       - ./4032_camp-guest-isp.conf:/etc/kea/kea-dhcp4.conf:ro
     ports:
-      - 67:67
+      - 10.0.32.2:67:67
     networks:
       vid4032:
 
 networks:
-  mgmt:
-    vid4000:
-      mame: mgmt
+  vid4000:
+    external:
+      name: mgmt
 
-    vid4010:
-      mame: noc-private
+  vid4010:
+    external:
+      name: noc-private
 
-    vid4030:
-      mame: camp-guest
+  vid4030:
+    external:
+      name: camp-guest
 
-    vid4031:
-      mame: camp-guest-nofw
+  vid4031:
+    external:
+      name: camp-guest-nofw
 
-    vid4032:
-      mame: camp-guest-isp
+  vid4032:
+    external:
+      name: camp-guest-isp

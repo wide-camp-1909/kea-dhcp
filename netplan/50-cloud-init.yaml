@@ -7,8 +7,8 @@ network:
     ethernets:
         ens36:
             addresses:
-            - 203.178.156.1/23
-            #gateway4: 203.178.158.1
+            - 203.178.156.2/23
+            #gateway4: 203.178.156.1
             routes:
             - to: 0.0.0.0/0
               via: 203.178.156.1

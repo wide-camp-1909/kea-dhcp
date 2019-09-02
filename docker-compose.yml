@@ -9,6 +9,6 @@ services:
     volumes:
       - ./kea/200_camp-guest.conf:/etc/kea/kea-dhcp4.conf:ro
     ports:
-      - 203.178.156.1:67:67
+      - 203.178.156.2:67:67
     network_mode: host
 

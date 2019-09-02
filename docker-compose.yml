@@ -1,57 +1,14 @@
 version: '3'
 
 services:
-  kea-dhcp-mgmt:
-    # build: .
-    image: widecamp1903/kea-dhcp
-    container_name: kea-dhcp-mgmt
-    restart: unless-stopped
-    volumes:
-      - ./kea/4000_mgmt.conf:/etc/kea/kea-dhcp4.conf:ro
-    ports:
-      - 10.0.100.0:67:67
-    network_mode: host
-
-  kea-dhcp-noc-private:
-    # build: .
-    image: widecamp1903/kea-dhcp
-    container_name: kea-dhcp-noc-private
-    restart: unless-stopped
-    volumes:
-      - ./kea/4010_noc-private.conf:/etc/kea/kea-dhcp4.conf:ro
-    ports:
-      - 203.178.156.66:67:67
-    network_mode: host
-
   kea-dhcp-cmap-guest:
     # build: .
     image: widecamp1903/kea-dhcp
     container_name: kea-dhcp-camp-guest
     restart: unless-stopped
     volumes:
-      - ./kea/4030_camp-guest.conf:/etc/kea/kea-dhcp4.conf:ro
+      - ./kea/200_camp-guest.conf:/etc/kea/kea-dhcp4.conf:ro
     ports:
-      - 203.178.158.2:67:67
+      - 203.178.156.1:67:67
     network_mode: host
 
-  kea-dhcp-cmap-guest-nofw:
-    # build: .
-    image: widecamp1903/kea-dhcp
-    container_name: kea-dhcp-camp-guest-nofw
-    restart: unless-stopped
-    volumes:
-      - ./kea/4031_camp-guest-nofw.conf:/etc/kea/kea-dhcp4.conf:ro
-    ports:
-      - 203.178.157.2:67:67
-    network_mode: host
-
-  kea-dhcp-cmap-guest-isp:
-    # build: .
-    image: widecamp1903/kea-dhcp
-    container_name: kea-dhcp-camp-guest-isp
-    restart: unless-stopped
-    volumes:
-      - ./kea/4032_camp-guest-isp.conf:/etc/kea/kea-dhcp4.conf:ro
-    ports:
-      - 10.0.32.2:67:67
-    network_mode: host

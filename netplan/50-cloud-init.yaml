@@ -5,57 +5,13 @@
 # network: {config: disabled}
 network:
     ethernets:
-        ens160:
+        ens36:
             addresses:
-            - 10.0.100.0/16
-            #gateway4: 10.0.0.1
-            routes:
-            - to: 0.0.0.0/0
-              via: 10.0.0.1
-              metric: 1
-            nameservers:
-                addresses:
-                - 1.1.1.1
-        ens161:
-            addresses:
-            - 203.178.156.66/26
-            #gateway4: 203.178.156.65
-            routes:
-            - to: 0.0.0.0/0
-              via: 203.178.156.65
-              metric: 10
-            nameservers:
-                addresses:
-                - 1.1.1.1
-        ens192:
-            addresses:
-            - 203.178.157.2/27
-            #gateway4: 203.178.157.1
-            routes:
-            - to: 0.0.0.0/0
-              via: 203.178.157.1
-              metric: 10
-            nameservers:
-                addresses:
-                - 1.1.1.1
-        ens224:
-            addresses:
-            - 10.32.0.2/24
-            #gateway4: 10.32.0.1
-            routes:
-            - to: 0.0.0.0/0
-              via: 10.32.0.1
-              metric: 10
-            nameservers:
-                addresses:
-                - 1.1.1.1
-        ens256:
-            addresses:
-            - 203.178.158.2/23
+            - 203.178.156.1/23
             #gateway4: 203.178.158.1
             routes:
             - to: 0.0.0.0/0
-              via: 203.178.158.1
+              via: 203.178.156.1
               metric: 10
             nameservers:
                 addresses:

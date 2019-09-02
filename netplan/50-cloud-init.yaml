@@ -15,5 +15,6 @@ network:
               metric: 10
             nameservers:
                 addresses:
-                - 1.1.1.1
+                - 203.178.158.32
+                - 203.178.158.33
     version: 2
